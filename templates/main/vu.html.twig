@@ -1,15 +1,11 @@
 {% extends "base.html.twig"%}
 
-{% block title %} Accueil {% endblock %}
+{% block title %} Déjà Vu {% endblock %}
 
 {% block body %} 
 
-<div class="row">
+<div class="row" id="dejavu">
     <div class="az" style="display:flex; flex-wrap:wrap;  justify-content: center;">
-            {# {% if actor is defined %}
-                <img style="max-width:500px" src="/assets/upload/images/{{ actor.image }}" alt={{actor.name}} />
-                <h2> {{ actor.firstName}} {{ actor.lastName}}</h2>
-            {% endif %} #}
         {% for movie in movies %}
             <div class="card col" style="width:18rem; flex: auto 0 0">
                 <div class="card-body"  style="justify-content: center;">
@@ -21,9 +17,8 @@
                     {% else %}
                         <img style="max-width:100%; min-height:49%; max-height:49%;" 
                             src="/assets/upload/images/{{ movie.image }}" alt={{movie.name}} />
-                        {# <img style="max-width:100%" src="/assets/upload/images/{{ movie.image }}" alt={{movie.name}} /> #}
                     {% endif %}
-                    <button type="button" class="btn btn-info">Définir comme déjà vu</button>
+                    <button type="button" class="btn btn-info" onclick="clickvu()" data-id={{ movie.id }}>Définir comme pas vu</button>
                     <p class="card-text" style="max-height:50px; 
                                                 height:250px;
                                                 padding: 0px;
@@ -38,6 +33,13 @@
         {% endfor %}
     </div>  
 </div>
+{# <script type="text/JavaScript">
+
+function clickvu(){
+    
+}
+
+</script> #}
 
 {% endblock %}
 
